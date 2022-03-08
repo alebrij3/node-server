@@ -6,8 +6,8 @@ const port = 3300;
 // serve static content
 app.use(express.static('public'));
 
-app.get('/', (req, res) => {
-  res.send('Hello World');
+app.get('*', (req, res) => {
+  res.sendFile('Hello World');
 });
 
 app.listen(port);
