@@ -1,12 +1,15 @@
-const http = require('http');
+const express = require('express');
+const app = express();
 
 const port = 3300;
 
-http
-  .createServer((req, res) => {
-    res.write('Hola, mundo');
-    res.end();
-  })
-  .listen(port);
+// serve static content
+app.use(express.static('public'));
 
-console.log('Escuchando en el puerto: ', port);
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
+app.listen(port);
+
+console.log('Now listening on port: ', port);
