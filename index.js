@@ -4,7 +4,11 @@ const app = express();
 const port = 3300;
 
 // serve static content
-app.use(express.static('public'));
+app.use(
+  express.static('public', {
+    extensions: ['html'],
+  })
+);
 
 app.get('*', (req, res) => {
   res.sendFile('Hello World');
